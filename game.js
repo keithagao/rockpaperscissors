@@ -37,12 +37,41 @@ let playerSelection = getPlayerSelection();
 let computerSelection = getComputerSelection();
 
 
-function playRound(playerSelection, computerSelection) {
-    /**ROCK */
-    
-    /**PAPER */
 
-    /**SCISSORS */
+//Decision maker of who win
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === "rock"){
+        if (computerSelection === "paper"){
+            console.log ("You lose! Paper beats Rock")
+        } else if (computerSelection === "rock"){
+            console.log ("It is a tie!")
+        } else{
+            console.log("OK you won!")
+        }
+
+        return console.log();
+    }
+  
+    else if (playerSelection === "paper"){
+        if (computerSelection === "scissor"){
+            console.log ("You lose! Scissors beats Paper")
+        } else if (computerSelection === "paper"){
+            console.log ("It is a tie!")
+        } else{
+            console.log("OK you won!")
+        }
+    }else if(playerSelection === "scissor" || playerSelection === "scissors"){
+        if (computerSelection === "rock"){
+            console.log ("You lose! Rock beats Scissors")
+        } else if (computerSelection === "Scissors"){
+            console.log ("It is a tie!")
+        } else{
+            console.log("OK you won!")
+        }
+
+    } else 
+         console.log("Invalid Answer")
 
   }
 
+  console.log(playRound(playerSelection,computerSelection))
