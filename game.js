@@ -15,13 +15,6 @@ let compScore = 0;
 let playerSelection ="";
 let computerSelection =getComputerSelection();
 
-//Gets player input
-/*function getPlayerSelection(){
-    let playerChoice=window.prompt("What is your choice? Rock, Paper, or Scissors");
-    
-    return playerChoice.toLowerCase();
-}*/
-
 //Random computer answer
 function getComputerSelection(){
     const options = [ "rock", "paper", "scissor"];
@@ -32,7 +25,7 @@ function getComputerSelection(){
 }
 
 
-//Decision maker of who win
+//Decision maker of who will win
 function playRound(playerSelection, computerSelection) {
     playerSelection = prompt("What is your choice? Rock, Paper, or Scissors?");
     gameRound +=1;
@@ -40,47 +33,45 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === "rock"){
         if (computerSelection === "paper"){
-            console.log ("You lose! Paper beats Rock")
+            return console.log ("You lose! Paper beats Rock")
             compScore +=1;
         } else if (computerSelection === "rock"){
-            console.log ("It is a tie!")
+            return console.log ("It is a tie!")
             playerScore +=0;
             compScore +=0;
         } else{
-            console.log("OK you won!")
+            return console.log("OK you won!")
             playerScore +=1;
         }
     }
   
     else if (playerSelection === "paper"){
         if (computerSelection === "scissor"){
-            console.log ("You lose! Scissors beats Paper")
+            return console.log ("You lose! Scissors beats Paper")
             compScore +=1;
         } else if (computerSelection === "paper"){
-            console.log ("It is a tie!")
+            return console.log ("It is a tie!")
             playerScore +=0;
             compScore +=0;
         } else{
-            console.log("OK you won!")
+            return console.log("OK you won!")
             playerScore +=1;
         }
     }else if(playerSelection === "scissor" || playerSelection === "scissors"){
         if (computerSelection === "rock"){
-            console.log ("You lose! Rock beats Scissors")
+            return console.log ("You lose! Rock beats Scissors")
             compScore +=1;
         } else if (computerSelection === "Scissors"){
-            console.log ("It is a tie!")
+            return console.log ("It is a tie!")
             playerScore +=0;
             compScore +=0;
         } else{
-            console.log("OK you won!")
+            return console.log("OK you won!")
             playerScore +=1;
         }
 
     } else 
-        console.log("Invalid Answer")
-    
-
+        return console.log("Invalid Answer")
 }
 
 
@@ -94,7 +85,14 @@ function game(){
         console.log("Computer Score: " +  compScore);
     }
 
-    return console.log( "Thank you for playing");
+    if (playerScore >  compScore){
+        console.log("Congratulations You Won Against the Computer")
+    } else if (playerScore < compScore){
+        console.log("Oh No! You Lose! Computer is getting more intelligent than humans")
+    } else 
+        console.log("Close match, reload the page to get a change to beat the computer")
+
+    return console.log( "Thank you for playing, reload the page if you want to play again!");
     
 }
 
