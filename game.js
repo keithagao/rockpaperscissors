@@ -9,11 +9,13 @@ function game(this will be the round counter if the game already ends)
 get input using prompt()
 */
 
+
 let gameRound = 0;
 let playerScore =0;
 let compScore = 0;
 let playerSelection ="";
 let computerSelection =getComputerSelection();
+
 
 //Random computer answer
 function getComputerSelection(){
@@ -29,45 +31,55 @@ function getComputerSelection(){
 function playRound(playerSelection, computerSelection) {
     playerSelection = prompt("What is your choice? Rock, Paper, or Scissors?");
     gameRound +=1;
+    
 
 
     if (playerSelection === "rock"){
         if (computerSelection === "paper"){
-            return console.log ("You lose! Paper beats Rock")
             compScore +=1;
+            return console.log ("You lose! Paper beats Rock")
+            
         } else if (computerSelection === "rock"){
-            return console.log ("It is a tie!")
-            playerScore +=0;
+            playerScore+=0;
             compScore +=0;
+            return console.log ("It is a tie!")
+            
         } else{
-            return console.log("OK you won!")
             playerScore +=1;
+            return console.log("OK you won!")
+            
         }
     }
   
     else if (playerSelection === "paper"){
         if (computerSelection === "scissor"){
-            return console.log ("You lose! Scissors beats Paper")
             compScore +=1;
+            return console.log ("You lose! Scissors beats Paper")
+            
         } else if (computerSelection === "paper"){
-            return console.log ("It is a tie!")
             playerScore +=0;
             compScore +=0;
+            return console.log ("It is a tie!")
         } else{
-            return console.log("OK you won!")
             playerScore +=1;
+            return console.log("OK you won!")
+            
         }
     }else if(playerSelection === "scissor" || playerSelection === "scissors"){
         if (computerSelection === "rock"){
-            return console.log ("You lose! Rock beats Scissors")
             compScore +=1;
+            return console.log ("You lose! Rock beats Scissors")
+            
         } else if (computerSelection === "Scissors"){
-            return console.log ("It is a tie!")
             playerScore +=0;
             compScore +=0;
+            return console.log ("It is a tie!")
+            
+            
         } else{
-            return console.log("OK you won!")
             playerScore +=1;
+            return console.log("OK you won!")
+            
         }
 
     } else 
@@ -96,4 +108,16 @@ function game(){
     
 }
 
-game();
+
+
+function gameStart(){
+
+    let start1 =prompt ("Type Start to start the Game");
+    let answer = start1.toLowerCase();
+    if(answer != "start"){
+        alert = ("Please type start to start the game ")
+   } else
+    return game();
+}
+
+gameStart();
